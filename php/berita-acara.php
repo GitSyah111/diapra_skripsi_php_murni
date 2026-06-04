@@ -197,7 +197,7 @@ $result = mysqli_query($conn, $query);
                         <table id="beritaAcaraTable" class="data-table display nowrap" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th class="no-export">#</th>
+                                    <th class="no-export text-center">No</th>
                                     <th>No Agenda</th>
                                     <th>Tgl BA</th>
                                     <th>No Berita Acara</th>
