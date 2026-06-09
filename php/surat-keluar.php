@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // Koneksi database
 include 'database.php';
 require_once 'auth_check.php';
@@ -219,6 +219,7 @@ $result = mysqli_query($conn, $query);
                                 <tr>
                                     <th>No</th>
                                     <th>Nomor Agenda</th>
+                                    <th>Jenis Arsip</th>
                                     <th>Nomor Surat</th>
                                     <th>Tujuan Surat</th>
                                     <th>Tanggal Surat</th>
@@ -242,6 +243,7 @@ $result = mysqli_query($conn, $query);
                                         <tr>
                                             <td class="text-center"><?php echo $no++; ?></td>
                                             <td class="text-center"><?php echo htmlspecialchars($row['nomor_urut']); ?></td>
+                                            <td><?php echo htmlspecialchars($row['jenis_arsip'] ?? '-'); ?></td>
                                             <td><?php echo htmlspecialchars($row['nomor_surat']); ?></td>
                                             <td><?php echo htmlspecialchars($row['tujuan_surat']); ?></td>
                                             <td data-date="<?= date('Y-m-d', strtotime($row['tanggal_surat'])) ?>"><?php echo $tgl_surat; ?></td>
