@@ -65,11 +65,11 @@ $data = mysqli_fetch_assoc($result);
                         </button>
                     </div>
                     <div class="nav-submenu" id="suratMasukSubmenu">
-                        <a href="surat-masuk-terdisposisi.php" class="nav-item submenu-item" title="Sudah Disposisi">
+                        <a href="surat-masuk.php?status=sudah" class="nav-item submenu-item" title="Sudah Disposisi">
                             <i class="fas fa-check-circle" style="font-size: 0.9em;"></i>
                             <span class="sidebar-text">Sudah Disposisi</span>
                         </a>
-                        <a href="surat-masuk-belum-disposisi.php" class="nav-item submenu-item" title="Belum Disposisi">
+                        <a href="surat-masuk.php?status=belum" class="nav-item submenu-item" title="Belum Disposisi">
                             <i class="fas fa-clock" style="font-size: 0.9em;"></i>
                             <span class="sidebar-text">Belum Disposisi</span>
                         </a>
@@ -276,3 +276,4 @@ $data = mysqli_fetch_assoc($result);
 </body>
 
 </html>
+

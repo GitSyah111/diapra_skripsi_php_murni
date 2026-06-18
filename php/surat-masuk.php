@@ -2,18 +2,28 @@
 // Koneksi database
 include 'database.php';
 require_once 'auth_check.php';
+
 if ($role == 'user') {
     header('Location: dashboard.php');
     exit;
 }
 
+// Check for status filter
+$status_filter = isset($_GET['status']) ? $_GET['status'] : 'all';
 
-// Query untuk mengambil data surat masuk
+$where_clause = "";
+if ($status_filter === 'belum') {
+    $where_clause = "WHERE surat_masuk.status_disposisi = 'Belum diproses'";
+} elseif ($status_filter === 'sudah') {
+    $where_clause = "WHERE surat_masuk.status_disposisi = 'Sudah didisposisi'";
+}
+
 // Query untuk mengambil data surat masuk
 $query = "SELECT surat_masuk.*, user.nama_bidang, user.username,
           (SELECT file_disposisi FROM disposisi WHERE disposisi.id_surat_masuk = surat_masuk.id ORDER BY id DESC LIMIT 1) as file_disposisi_final, (SELECT tujuan_bidang FROM disposisi WHERE disposisi.id_surat_masuk = surat_masuk.id ORDER BY id DESC LIMIT 1) as tujuan_bidang_final 
           FROM surat_masuk 
           LEFT JOIN user ON surat_masuk.id_user = user.no 
+          $where_clause
           ORDER BY surat_masuk.id DESC";
 $result = mysqli_query($conn, $query);
 ?>
@@ -65,11 +75,11 @@ $result = mysqli_query($conn, $query);
                         </button>
                     </div>
                     <div class="nav-submenu" id="suratMasukSubmenu">
-                        <a href="surat-masuk-terdisposisi.php" class="nav-item submenu-item" title="Sudah Disposisi">
+                        <a href="surat-masuk.php?status=sudah" class="nav-item submenu-item" title="Sudah Disposisi">
                             <i class="fas fa-check-circle" style="font-size: 0.9em;"></i>
                             <span class="sidebar-text">Sudah Disposisi</span>
                         </a>
-                        <a href="surat-masuk-belum-disposisi.php" class="nav-item submenu-item" title="Belum Disposisi">
+                        <a href="surat-masuk.php?status=belum" class="nav-item submenu-item" title="Belum Disposisi">
                             <i class="fas fa-clock" style="font-size: 0.9em;"></i>
                             <span class="sidebar-text">Belum Disposisi</span>
                         </a>
@@ -365,3 +375,5 @@ $result = mysqli_query($conn, $query);
 </body>
 
 </html>
+
+
