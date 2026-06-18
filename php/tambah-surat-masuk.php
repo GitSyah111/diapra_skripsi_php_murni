@@ -86,24 +86,28 @@ $result_users = mysqli_query($conn, $query_users);
                     <span class="sidebar-text">SPJ UMPEG</span>
                 </a>
                 <?php endif; ?>
-                <?php if ($role !== 'user'): ?>
                 <a href="surat-cuti.php" class="nav-item" title="Surat Cuti">
                     <i class="fas fa-calendar-check"></i>
                     <span class="sidebar-text">Surat Cuti</span>
                 </a>
-                <?php endif; ?>
+                <?php if ($role !== 'user'): ?>
                 <a href="berita-acara.php" class="nav-item" title="Berita Acara">
                     <i class="fas fa-file-contract"></i>
                     <span class="sidebar-text">Berita Acara</span>
                 </a>
+                <?php endif; ?>
+                <?php if ($role !== 'user'): ?>
                 <a href="daftar-arsip-vital.php" class="nav-item" title="Daftar Arsip Vital">
                     <i class="fas fa-archive"></i>
                     <span class="sidebar-text">Daftar Arsip Vital</span>
                 </a>
+                <?php endif; ?>
+                <?php if ($role !== 'user'): ?>
                 <a href="pernyataan-verifikasi-bmd.php" class="nav-item" title="Pernyataan Verifikasi BMD">
                     <i class="fas fa-file-signature"></i>
                     <span class="sidebar-text">Perny. Verifikasi BMD</span>
                 </a>
+                <?php endif; ?>
                 <?php if ($role !== 'user'): ?>
                 <a href="data-pengguna.php" class="nav-item" title="Data Pengguna">
                     <i class="fas fa-users"></i>

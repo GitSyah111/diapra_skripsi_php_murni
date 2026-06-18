@@ -1,12 +1,7 @@
-﻿<?php
+<?php
 // Koneksi database
 include 'database.php';
 require_once 'auth_check.php';
-if ($role == 'user') {
-    header('Location: dashboard.php');
-    exit;
-}
-
 
 // Ambil ID dari URL
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
@@ -167,10 +162,12 @@ $sampai_dengan = $data['Sampai Dengan'] > 0 ? date('d F Y', $data['Sampai Dengan
             <!-- Navigasi sidebar -->
             <nav class="sidebar-nav">
                 <!-- Menu Dashboard -->
+                <?php if ($role !== 'user'): ?>
                 <a href="dashboard.php" class="nav-item" title="Dashboard">
                     <i class="fas fa-home"></i>
                     <span class="sidebar-text">Dashboard</span>
                 </a>
+                <?php endif; ?>
                 <!-- Menu Surat Masuk -->
                                 <?php if ($role !== 'user'): ?>
                 <div class="nav-item-dropdown-container">
@@ -196,10 +193,12 @@ $sampai_dengan = $data['Sampai Dengan'] > 0 ? date('d F Y', $data['Sampai Dengan
                 </div>
                 <?php endif; ?>
                 <!-- Menu Surat Keluar -->
+                <?php if ($role !== 'user'): ?>
                 <a href="surat-keluar.php" class="nav-item" title="Surat Keluar">
                     <i class="fas fa-paper-plane"></i>
                     <span class="sidebar-text">Surat Keluar</span>
                 </a>
+                <?php endif; ?>
                 <!-- Menu SPJ UMPEG -->
                 <?php if ($role !== 'user'): ?>
                 <a href="spj-umpeg.php" class="nav-item" title="SPJ UMPEG">
@@ -208,24 +207,28 @@ $sampai_dengan = $data['Sampai Dengan'] > 0 ? date('d F Y', $data['Sampai Dengan
                 </a>
                 <?php endif; ?>
                 <!-- Menu Surat Cuti -->
-                <?php if ($role !== 'user'): ?>
                 <a href="surat-cuti.php" class="nav-item active" title="Surat Cuti">
                     <i class="fas fa-calendar-check"></i>
                     <span class="sidebar-text">Surat Cuti</span>
                 </a>
-                <?php endif; ?>
+                <?php if ($role !== 'user'): ?>
                 <a href="berita-acara.php" class="nav-item" title="Berita Acara">
                     <i class="fas fa-file-contract"></i>
                     <span class="sidebar-text">Berita Acara</span>
                 </a>
+                <?php endif; ?>
+                <?php if ($role !== 'user'): ?>
                 <a href="daftar-arsip-vital.php" class="nav-item" title="Daftar Arsip Vital">
                     <i class="fas fa-archive"></i>
                     <span class="sidebar-text">Daftar Arsip Vital</span>
                 </a>
+                <?php endif; ?>
+                <?php if ($role !== 'user'): ?>
                 <a href="pernyataan-verifikasi-bmd.php" class="nav-item" title="Pernyataan Verifikasi BMD">
                     <i class="fas fa-file-signature"></i>
                     <span class="sidebar-text">Perny. Verifikasi BMD</span>
                 </a>
+                <?php endif; ?>
                 <?php if ($role !== 'user'): ?>
                 <!-- Menu Data Pengguna -->
                 <a href="data-pengguna.php" class="nav-item" title="Data Pengguna">

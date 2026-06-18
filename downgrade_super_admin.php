@@ -1,6 +1,4 @@
 <?php
-// Script Migrasi Database
-
 $databases = ['db_diapra_2025', 'db_diapra_2026'];
 $host = 'localhost';
 $user = 'root';
@@ -20,12 +18,12 @@ foreach ($databases as $db) {
     $conn->query("ALTER TABLE `user` MODIFY COLUMN `role` VARCHAR(255)");
     
     // 2. Update rows
-    $conn->query("UPDATE `user` SET `role` = 'user' WHERE `role` = 'bidang'");
+    $conn->query("UPDATE `user` SET `role` = 'admin' WHERE `role` = 'super_admin'");
     $affected = $conn->affected_rows;
-    echo " - Updated $affected rows to 'user'.\n";
+    echo " - Updated $affected rows from 'super_admin' to 'admin'.\n";
     
     // 3. Change back to new ENUM
-    if ($conn->query("ALTER TABLE `user` MODIFY COLUMN `role` ENUM('super_admin','admin','user') NOT NULL DEFAULT 'user'")) {
+    if ($conn->query("ALTER TABLE `user` MODIFY COLUMN `role` ENUM('admin','user') NOT NULL DEFAULT 'user'")) {
          echo " - ENUM schema updated successfully.\n";
     } else {
          echo " - Failed to update ENUM: " . $conn->error . "\n";
