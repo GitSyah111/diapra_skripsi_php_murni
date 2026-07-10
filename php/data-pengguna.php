@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // Koneksi database
 include 'database.php';
 require_once 'auth_check.php';
@@ -54,11 +54,11 @@ $result = mysqli_query($conn, $query);
                         </button>
                     </div>
                     <div class="nav-submenu" id="suratMasukSubmenu">
-                        <a href="surat-masuk.php?status=sudah" class="nav-item submenu-item" title="Sudah Disposisi">
+                        <a href="surat-masuk-terdisposisi.php" class="nav-item submenu-item" title="Sudah Disposisi">
                             <i class="fas fa-check-circle" style="font-size: 0.9em;"></i>
                             <span class="sidebar-text">Sudah Disposisi</span>
                         </a>
-                        <a href="surat-masuk.php?status=belum" class="nav-item submenu-item" title="Belum Disposisi">
+                        <a href="surat-masuk-belum-disposisi.php" class="nav-item submenu-item" title="Belum Disposisi">
                             <i class="fas fa-clock" style="font-size: 0.9em;"></i>
                             <span class="sidebar-text">Belum Disposisi</span>
                         </a>
@@ -196,7 +196,7 @@ $result = mysqli_query($conn, $query);
                                             <td><?php echo htmlspecialchars($row['username']); ?></td>
                                             <td>
                                                 <span class="password-hidden" id="pwd-<?php echo $row['no']; ?>">
-                                                    <?php echo str_repeat('�', strlen($row['password'])); ?>
+                                                    <?php echo str_repeat('•', strlen($row['password'])); ?>
                                                 </span>
                                                 <span class="password-shown" id="pwd-show-<?php echo $row['no']; ?>" style="display:none;">
                                                     <?php echo htmlspecialchars($row['password']); ?>

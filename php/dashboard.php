@@ -164,11 +164,11 @@ if ($role == 'bidang') {
                         </button>
                     </div>
                     <div class="nav-submenu" id="suratMasukSubmenu">
-                        <a href="surat-masuk.php?status=sudah" class="nav-item submenu-item" title="Sudah Disposisi">
+                        <a href="surat-masuk-terdisposisi.php" class="nav-item submenu-item" title="Sudah Disposisi">
                             <i class="fas fa-check-circle" style="font-size: 0.9em;"></i>
                             <span class="sidebar-text">Sudah Disposisi</span>
                         </a>
-                        <a href="surat-masuk.php?status=belum" class="nav-item submenu-item" title="Belum Disposisi">
+                        <a href="surat-masuk-belum-disposisi.php" class="nav-item submenu-item" title="Belum Disposisi">
                             <i class="fas fa-clock" style="font-size: 0.9em;"></i>
                             <span class="sidebar-text">Belum Disposisi</span>
                         </a>
@@ -276,7 +276,7 @@ if ($role == 'bidang') {
                         </div>
                     </a>
 
-                    <a href="surat-masuk.php?status=sudah" class="stat-card teal" style="text-decoration: none; color: inherit;">
+                    <a href="surat-masuk-terdisposisi.php" class="stat-card teal" style="text-decoration: none; color: inherit;">
                         <div class="stat-icon">
                             <i class="fas fa-check-circle"></i>
                         </div>
@@ -287,7 +287,7 @@ if ($role == 'bidang') {
                         </div>
                     </a>
 
-                    <a href="surat-masuk.php?status=belum" class="stat-card orange" style="text-decoration: none; color: inherit;">
+                    <a href="surat-masuk-belum-disposisi.php" class="stat-card orange" style="text-decoration: none; color: inherit;">
                         <div class="stat-icon">
                             <i class="fas fa-clock"></i>
                         </div>
@@ -574,4 +574,3 @@ if ($role == 'bidang') {
 </body>
 
 </html>
-

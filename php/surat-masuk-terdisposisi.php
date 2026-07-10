@@ -14,6 +14,7 @@ $query = "SELECT surat_masuk.*, user.nama_bidang, user.username,
           (SELECT file_disposisi FROM disposisi WHERE disposisi.id_surat_masuk = surat_masuk.id ORDER BY id DESC LIMIT 1) as file_disposisi_final, (SELECT tujuan_bidang FROM disposisi WHERE disposisi.id_surat_masuk = surat_masuk.id ORDER BY id DESC LIMIT 1) as tujuan_bidang_final 
           FROM surat_masuk 
           LEFT JOIN user ON surat_masuk.id_user = user.no 
+          WHERE surat_masuk.status_disposisi = 'Sudah didisposisi'
           ORDER BY surat_masuk.id DESC";
 $result = mysqli_query($conn, $query);
 ?>
@@ -23,7 +24,7 @@ $result = mysqli_query($conn, $query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surat Masuk - DPPKBPM</title>
+    <title>Surat Masuk Terdisposisi - DPPKBPM</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
@@ -144,7 +145,7 @@ $result = mysqli_query($conn, $query);
                     <button class="header-menu-btn" id="headerMenuBtn">
                         <i class="fas fa-bars"></i>
                     </button>
-                    <h1 class="header-title">Surat Masuk</h1>
+                    <h1 class="header-title">Surat Masuk Terdisposisi</h1>
                 </div>
                 <div class="header-right">
                     <div class="user-info" id="userInfoToggle">
@@ -208,7 +209,7 @@ $result = mysqli_query($conn, $query);
                 <!-- Data Table -->
                 <div class="content-box">
                     <div class="box-header">
-                        <h2><i class="fas fa-inbox"></i> Daftar Surat Masuk</h2>
+                        <h2><i class="fas fa-check-circle"></i> Daftar Surat Masuk Terdisposisi</h2>
                         <div class="filter-container" style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:10px;">
                             <div class="filter-group">
                                 <label for="filterDari">Dari Tanggal:</label>
