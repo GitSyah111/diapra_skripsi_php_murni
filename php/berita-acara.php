@@ -25,7 +25,7 @@ $result = mysqli_query($conn, $query);
     <!-- Custom CSS (Loaded after libraries to override styles) -->
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/kepala-dinas.css">
-    <link rel="stylesheet" href="../css/surat-masuk.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/surat-masuk.css">
 
 </head>
 
@@ -242,7 +242,7 @@ $result = mysqli_query($conn, $query);
                                             <td class="text-center no-export">
                                                 <div class="action-buttons-wrapper">
                                                     <a href="edit-berita-acara.php?id=<?php echo $row['id']; ?>" class="btn-action btn-edit" title="Edit">
-                                                        <i class="fas fa-edit"></i>
+                                                        <i class="fas fa-edit"></i> Edit
                                                     </a>
                                                     <button class="btn-action btn-delete" onclick="confirmDelete(<?php echo $row['id']; ?>)" title="Hapus">
                                                         <i class="fas fa-trash"></i>

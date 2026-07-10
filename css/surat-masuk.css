@@ -220,9 +220,7 @@
 #suratCutiTable thead th,
 #beritaAcaraTable thead th,
 #penggunaTable thead th,
-#kepalaDinasTable thead th,
-#arsipVitalTable thead th,
-#pernyataanTable thead th {
+#kepalaDinasTable thead th {
     background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
     color: white;
     font-weight: 600;
