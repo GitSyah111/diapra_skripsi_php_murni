@@ -2,6 +2,10 @@
 // Koneksi database
 include 'database.php';
 require_once 'auth_check.php';
+if ($role == 'user') {
+    header('Location: dashboard.php');
+    exit;
+}
 
 
 // Query untuk mengambil data Surat Cuti dengan urutan terbaru
@@ -57,12 +61,10 @@ $result = mysqli_query($conn, $query);
             <!-- Navigasi sidebar -->
             <nav class="sidebar-nav">
                 <!-- Menu Dashboard -->
-                <?php if ($role !== 'user'): ?>
                 <a href="dashboard.php" class="nav-item" title="Dashboard">
                     <i class="fas fa-home"></i>
                     <span class="sidebar-text">Dashboard</span>
                 </a>
-                <?php endif; ?>
                 <!-- Menu Surat Masuk -->
                                 <?php if ($role !== 'user'): ?>
                 <div class="nav-item-dropdown-container">
@@ -88,12 +90,10 @@ $result = mysqli_query($conn, $query);
                 </div>
                 <?php endif; ?>
                 <!-- Menu Surat Keluar -->
-                <?php if ($role !== 'user'): ?>
                 <a href="surat-keluar.php" class="nav-item" title="Surat Keluar">
                     <i class="fas fa-paper-plane"></i>
                     <span class="sidebar-text">Surat Keluar</span>
                 </a>
-                <?php endif; ?>
 
                 <?php if ($role !== 'user' && $role !== 'bidang'): ?>
                 <!-- Menu SPJ UMPEG -->
@@ -103,28 +103,24 @@ $result = mysqli_query($conn, $query);
                 </a>
                 <?php endif; ?>
                 <!-- Menu Surat Cuti -->
+                <?php if ($role !== 'user'): ?>
                 <a href="surat-cuti.php" class="nav-item active" title="Surat Cuti">
                     <i class="fas fa-calendar-check"></i>
                     <span class="sidebar-text">Surat Cuti</span>
                 </a>
-                <?php if ($role !== 'user'): ?>
+                <?php endif; ?>
                 <a href="berita-acara.php" class="nav-item" title="Berita Acara">
                     <i class="fas fa-file-contract"></i>
                     <span class="sidebar-text">Berita Acara</span>
                 </a>
-                <?php endif; ?>
-                <?php if ($role !== 'user'): ?>
                 <a href="daftar-arsip-vital.php" class="nav-item" title="Daftar Arsip Vital">
                     <i class="fas fa-archive"></i>
                     <span class="sidebar-text">Daftar Arsip Vital</span>
                 </a>
-                <?php endif; ?>
-                <?php if ($role !== 'user'): ?>
                 <a href="pernyataan-verifikasi-bmd.php" class="nav-item" title="Pernyataan Verifikasi BMD">
                     <i class="fas fa-file-signature"></i>
                     <span class="sidebar-text">Perny. Verifikasi BMD</span>
                 </a>
-                <?php endif; ?>
                 <?php if ($role !== 'user' && $role !== 'bidang'): ?>
                 <!-- Menu Data Pengguna -->
                 <a href="data-pengguna.php" class="nav-item" title="Data Pengguna">

@@ -4,7 +4,7 @@ include 'database.php';
 require_once 'auth_check.php';
 
 // Fitur CRUD hanya untuk admin dan super admin
-if ($role !== 'admin') {
+if ($role !== 'admin' && $role !== 'super_admin') {
     $_SESSION['error'] = 'Anda tidak memiliki akses untuk melakukan aksi ini.';
     header('Location: daftar-arsip-vital.php');
     exit;
