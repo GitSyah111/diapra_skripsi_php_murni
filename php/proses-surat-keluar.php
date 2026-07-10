@@ -47,7 +47,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $nomor_urut = mysqli_real_escape_string($conn, $_POST['nomor_urut']);
         $tanggal_surat = mysqli_real_escape_string($conn, $_POST['tanggal_surat']);
         $nomor_surat = mysqli_real_escape_string($conn, $_POST['nomor_surat']);
-        $jenis_arsip = mysqli_real_escape_string($conn, $_POST['jenis_arsip'] ?? '');
         $tujuan_surat = mysqli_real_escape_string($conn, $_POST['tujuan_surat']);
         $perihal = mysqli_real_escape_string($conn, $_POST['perihal']);
         
@@ -72,8 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         // Insert ke database
-        $query = "INSERT INTO surat_keluar (nomor_urut, nomor_surat, jenis_arsip, tujuan_surat, tanggal_surat, perihal, dibuat_oleh, file_surat, id_user) 
-                  VALUES ('$nomor_urut', '$nomor_surat', '$jenis_arsip', '$tujuan_surat', '$tanggal_surat', '$perihal', '$dibuat_oleh', '$file_surat', '$id_user')";
+        // Insert ke database
+        $query = "INSERT INTO surat_keluar (nomor_urut, nomor_surat, tujuan_surat, tanggal_surat, perihal, dibuat_oleh, file_surat, id_user) 
+                  VALUES ('$nomor_urut', '$nomor_surat', '$tujuan_surat', '$tanggal_surat', '$perihal', '$dibuat_oleh', '$file_surat', '$id_user')";
 
         if (mysqli_query($conn, $query)) {
             echo "<!DOCTYPE html>
@@ -131,7 +131,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $id = mysqli_real_escape_string($conn, $_POST['id']);
         $tanggal_surat = mysqli_real_escape_string($conn, $_POST['tanggal_surat']);
         $nomor_surat = mysqli_real_escape_string($conn, $_POST['nomor_surat']);
-        $jenis_arsip = mysqli_real_escape_string($conn, $_POST['jenis_arsip'] ?? '');
         $tujuan_surat = mysqli_real_escape_string($conn, $_POST['tujuan_surat']);
         $perihal = mysqli_real_escape_string($conn, $_POST['perihal']);
 
@@ -179,7 +178,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $query = "UPDATE surat_keluar SET 
                   tanggal_surat = '$tanggal_surat',
                   nomor_surat = '$nomor_surat',
-                  jenis_arsip = '$jenis_arsip',
                   tujuan_surat = '$tujuan_surat',
                   perihal = '$perihal',
                   file_surat = $file_update_str

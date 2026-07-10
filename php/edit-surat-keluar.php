@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // Koneksi database
 include 'database.php';
 require_once 'auth_check.php';
@@ -199,20 +199,6 @@ $surat = mysqli_fetch_assoc($result);
                                     <input type="date" id="tanggal_surat" name="tanggal_surat"
                                         value="<?php echo $surat['tanggal_surat']; ?>" required>
                                 </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="jenis_arsip">
-                                    <i class="fas fa-archive"></i> Jenis Arsip <span class="required">*</span>
-                                </label>
-                                <select id="jenis_arsip" name="jenis_arsip" class="form-control" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 15px;">
-                                    <option value="" disabled>Pilih Jenis Arsip</option>
-                                    <option value="SK" <?php echo ($surat['jenis_arsip'] ?? '') == 'SK' ? 'selected' : ''; ?>>SK</option>
-                                    <option value="Surat Perintah Perjalanan Dinas (SPPD)" <?php echo ($surat['jenis_arsip'] ?? '') == 'Surat Perintah Perjalanan Dinas (SPPD)' ? 'selected' : ''; ?>>Surat Perintah Perjalanan Dinas (SPPD)</option>
-                                    <option value="Surat Tugas" <?php echo ($surat['jenis_arsip'] ?? '') == 'Surat Tugas' ? 'selected' : ''; ?>>Surat Tugas</option>
-                                    <option value="Nota Dinas" <?php echo ($surat['jenis_arsip'] ?? '') == 'Nota Dinas' ? 'selected' : ''; ?>>Nota Dinas</option>
-                                    <option value="Kontrak/MoU" <?php echo ($surat['jenis_arsip'] ?? '') == 'Kontrak/MoU' ? 'selected' : ''; ?>>Kontrak/MoU</option>
-                                </select>
                             </div>
 
                             <div class="form-group">

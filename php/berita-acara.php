@@ -241,16 +241,6 @@ $result = mysqli_query($conn, $query);
                                             <td><?php echo htmlspecialchars($row['nilai_pengadaan'] ?? '-'); ?></td>
                                             <td class="text-center no-export">
                                                 <div class="action-buttons-wrapper">
-                                                    <?php if (!empty($row['file_berita_acara'])): ?>
-                                                        <a href="../uploads/berita_acara/<?php echo $row['file_berita_acara']; ?>" class="btn-action btn-view" title="Lihat PDF" target="_blank">
-                                                            <i class="fas fa-file-pdf"></i>
-                                                        </a>
-                                                    <?php else: ?>
-                                                        <button class="btn-action btn-disabled" title="Belum ada file" disabled>
-                                                            <i class="fas fa-file-pdf"></i>
-                                                        </button>
-                                                    <?php endif; ?>
-                                                    
                                                     <a href="edit-berita-acara.php?id=<?php echo $row['id']; ?>" class="btn-action btn-edit" title="Edit">
                                                         <i class="fas fa-edit"></i>
                                                     </a>

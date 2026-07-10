@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // Koneksi database
 include 'database.php';
 require_once 'auth_check.php';
@@ -184,20 +184,6 @@ $next_nomor = ($row['max_nomor'] ? $row['max_nomor'] : 0) + 1;
                                     <input type="date" id="tanggal_surat" name="tanggal_surat"
                                         value="<?php echo date('Y-m-d'); ?>" required>
                                 </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="jenis_arsip">
-                                    <i class="fas fa-archive"></i> Jenis Arsip <span class="required">*</span>
-                                </label>
-                                <select id="jenis_arsip" name="jenis_arsip" class="form-control" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 15px;">
-                                    <option value="" disabled selected>Pilih Jenis Arsip</option>
-                                    <option value="SK">SK</option>
-                                    <option value="Surat Perintah Perjalanan Dinas (SPPD)">Surat Perintah Perjalanan Dinas (SPPD)</option>
-                                    <option value="Surat Tugas">Surat Tugas</option>
-                                    <option value="Nota Dinas">Nota Dinas</option>
-                                    <option value="Kontrak/MoU">Kontrak/MoU</option>
-                                </select>
                             </div>
 
                             <div class="form-group">
