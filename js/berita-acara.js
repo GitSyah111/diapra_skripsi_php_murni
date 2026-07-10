@@ -50,22 +50,22 @@ $(document).ready(function() {
         pageLength: 10,
         columnDefs: [
             {
-                targets: 0,
+                targets: 0, // Column #
                 orderable: false,
-                searchable: false,
-                className: 'text-center'
+                className: 'select-checkbox'
             }
         ],
+        select: {
+            style: 'multi',
+            selector: 'td:first-child'
+        },
         order: [[ 1, 'asc' ]]
     });
 
-    // Menambahkan nomor urut otomatis
-    table.on('order.dt search.dt', function () {
-        let i = 1;
-        table.cells(null, 0, { search: 'applied', order: 'applied' }).every(function (cell) {
-            this.data(i++);
-        });
-    }).draw();
+    // Menangani klik baris untuk seleksi (optional tapi style di gambar ada kolom #)
+    $('#beritaAcaraTable tbody').on('click', 'tr td:first-child', function() {
+        $(this).parent().toggleClass('selected');
+    });
 
 });
 
